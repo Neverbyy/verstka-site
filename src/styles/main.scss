@@ -26,10 +26,10 @@ body {
       justify-content: space-evenly;
       flex-direction: row;
       margin-bottom: 40px;
+      align-items: center;
 
       .logo {
         font-size: 24px;
-        margin-bottom: 20px;
       }
 
       .burger {
@@ -90,7 +90,7 @@ body {
   
 }
 
-.main{
+.left-section_main{
   margin-top: 200px;
   padding-left: 180px;
   display: flex;
@@ -207,14 +207,15 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 65px;
     background-color: #282829;
 }
 
 .form-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     background-color: white;
-    border-radius: 14px;
+    border-radius: 24px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 1500px;
@@ -281,7 +282,10 @@ input[type="email"] {
 }
 
 .background-img {
-    width: 770px
+    position: absolute;
+    bottom: 0;
+    right: -2px;
+    height: 540px;
 }
 
 .girl-img {
@@ -401,7 +405,77 @@ input[type="email"] {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 968px) {
+  .container{
+    .left-section{
+      width: 100%;
+      padding-bottom: 50px;
+
+      .left-section_main{
+        margin-top: 50px;
+        padding-left: 0;
+        align-items: center;
+        .heading{
+          text-align: center;
+          h1{
+            width: 100%;
+            font-size: 60px;
+          }
+          h2{
+            font-size: 28px;
+            font-style: italic;
+          }
+        }
+      }
+    }
+    .right-section{
+      display: none;
+    }
+  }
+
+  main{
+    .main-section{
+      .image-container{
+        display: none;
+      }
+      .content{
+        width: 100%;
+
+        ul{
+          display: grid;
+          grid-template-columns: repeat(2, 2fr);
+
+          li{
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+    .form-section{
+      padding: 30px;
+      .form-container{
+        display: flex;
+        .form-content{
+          width: 100%;
+          padding: 15px;
+          input{
+            width: auto;
+            padding: 12px;
+          }
+          h2{
+            width: 100%;
+            font-size: 30px;
+          }
+        }
+        .form-image{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 516px) {
   body {
     margin: 0;
     font-size: 14px;
@@ -444,7 +518,6 @@ input[type="email"] {
 
         .logo {
           font-size: 24px;
-          margin-bottom: 0;
         }
         &.open {
           .nav {
@@ -452,48 +525,49 @@ input[type="email"] {
           }
         }
       }
-    }
 
     .right-section {
       display: none;
     }
-  }
 
-  .main {
-    padding: 0;
-    margin-top: 0;
-    align-items: center;
-    text-align: center;
-    .heading{
-      h1 {
-        font-size: 30px;
-        width: 100%;
+    .left-section_main {
+      padding: 0;
+      margin-top: 0;
+      align-items: center;
+      text-align: center;
+      .heading{
+        h1 {
+          font-size: 30px;
+          width: 100%;
+        }
+      
+        h2 {
+          font-size: 22px;
+        }
       }
     
-      h2 {
-        font-size: 22px;
+      ul {
+        padding: 0;
+        list-style: none;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          font-size: 1rem;
+          gap: 5px;
+          margin-bottom: 10px;
+        }
       }
-    }
-  
-    ul {
-      padding: 0;
-      list-style: none;
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 5px;
-        margin-bottom: 10px;
+    
+      .order-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
       }
-    }
-  
-    .order-button {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
     }
   }
+}
 
 main{
   .main-section {
@@ -510,6 +584,7 @@ main{
     }
     .main-nav{
       ul{
+        display: flex;
           padding: 0;
           list-style: none;
 
@@ -586,8 +661,10 @@ main{
       .social-media{
         gap: 20px;
 
-        .social-links{
-          
+        @media(max-width: 360px){
+          .social-links{
+            gap: 10px;
+          }
         }
       }
       .brand{
